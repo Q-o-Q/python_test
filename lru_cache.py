@@ -26,9 +26,6 @@ class LRUCache:
         """
         if key not in self.cache:
             return None
-
-        # 将访问的键移到字典末尾表示最近使用
-        self.cache.move_to_end(key)
         return self.cache[key]
 
     def put(self, key: any, value: any) -> None:
@@ -45,9 +42,6 @@ class LRUCache:
             if len(self.cache) >= self.capacity:
                 # 如果缓存已满，弹出最久未使用的元素（字典头部）
                 self.cache.popitem(last=False)
-
-        # 插入或更新键值对
-        self.cache[key] = value
 
     def __len__(self) -> int:
         """返回当前缓存中的元素数量"""

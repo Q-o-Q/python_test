@@ -19,7 +19,7 @@ class TestLRUCache(unittest.TestCase):
         self.assertEqual(cache.get(3), "c")
 
         # 测试更新已有键
-        cache.put(1, "x")
+        cache.put(2, "x")
         self.assertEqual(cache.get(1), "x")
 
         # 测试长度
