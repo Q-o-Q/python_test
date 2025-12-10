@@ -19,10 +19,10 @@ class LRUCache:
 
     def get(self, key: any) -> any:
         """
-        获取键对应的值
-
-        :param key: 要查找的键
-        :return: 如果键存在返回对应的值，否则返回 None
+        Retrieves the value associated with the given key from the cache.
+        
+        Returns:
+            The value if the key exists in the cache; otherwise, None.
         """
         if key not in self.cache:
             return None
@@ -30,10 +30,9 @@ class LRUCache:
 
     def put(self, key: any, value: any) -> None:
         """
-        插入键值对到缓存中
-
-        :param key: 要插入的键
-        :param value: 要插入的值
+        Inserts or updates a key-value pair in the cache, evicting the least recently used item if necessary.
+        
+        If the key already exists, it is marked as recently used. If the cache is at capacity and the key is new, the least recently used item is removed before insertion.
         """
         if key in self.cache:
             # 如果键已存在，更新值并移到末尾
@@ -44,7 +43,9 @@ class LRUCache:
                 self.cache.popitem(last=False)
 
     def __len__(self) -> int:
-        """返回当前缓存中的元素数量"""
+        """
+        Returns the number of items currently stored in the cache.
+        """
         return len(self.cache)
 
     def clear(self) -> None:
